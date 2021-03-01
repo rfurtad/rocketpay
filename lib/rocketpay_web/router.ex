@@ -10,6 +10,8 @@ defmodule RocketpayWeb.Router do
     pipe_through :api
     # a requisição get é mapeada no welcomecontroller para a aciton index
     get "/:filename", WelcomeController, :index
+
+    post "/users", UsersController, :create
   end
 
   # Enables LiveDashboard only for development

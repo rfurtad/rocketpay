@@ -18,6 +18,7 @@ defmodule Rocketpay.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     field :nickname, :string
+    timestamps()
   end
 
   # Diz pro banco quais dados serão colocados e roda as validações
@@ -37,7 +38,7 @@ defmodule Rocketpay.User do
   end
 
   # funcao change recebe um change set e retorna um novo modificado
-  defp put_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset)do
+  defp put_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
     change(changeset, Bcrypt.add_hash(password))
   end
 
