@@ -6,7 +6,7 @@ config :rocketpay, Rocketpay.Repo,
   password: "postgres",
   database: "rocketpay_dev",
   hostname: "localhost",
-  #port: minha porta, caso seja outra porta
+  port: 5433,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
