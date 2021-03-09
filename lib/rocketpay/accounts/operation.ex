@@ -36,7 +36,6 @@ defmodule Rocketpay.Accounts.Operation do
   end
 
   defp handle_cast({:ok, value}, balance, :withdraw) do
-    IO.inspect(Decimal.sub(balance, value))
     if (value <= 0), do: handle_cast(:error, value), else: Decimal.sub(balance, value)
   end
 

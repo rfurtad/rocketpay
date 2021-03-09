@@ -1,13 +1,20 @@
 defmodule RocketpayWeb.Router do
   use RocketpayWeb, :router
 
+  import Plug.BasicAuth
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  # quando se cria um pipeline, siginica que todas as rotas dedinidas aqui
+  # devem obedecer as regras do plug. O plug é uma convenção
+  # para manipular a conexão (conn)
+  pipeline :auth do
+    plug :basic_auth, Application.compile_env(:rocketpay, :basic_auth)
+  end
   # no /api
   scope "/api", RocketpayWeb do
-    pipe_through :api
+    pipe_through [:api, :auth]
     # a requisição get é mapeada no welcomecontroller para a aciton index
     get "/:filename", WelcomeController, :index
 

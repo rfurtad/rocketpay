@@ -18,6 +18,11 @@ config :rocketpay, RocketpayWeb.Endpoint,
   pubsub_server: Rocketpay.PubSub,
   live_view: [signing_salt: "8tSMPY9B"]
 
+config :rocketpay, :basic_auth,
+  username: "banana",
+  password: "nanica123"
+
+
 # Tá indidicando para o ECTO que toda migration deve
 # ser gerada usando UUID
 config :rocketpay, Rocketpay.Repo,
