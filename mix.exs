@@ -27,7 +27,7 @@ defmodule Rocketpay.MixProject do
   def application do
     [
       mod: {Rocketpay.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
     ]
   end
 
@@ -52,6 +52,7 @@ defmodule Rocketpay.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~>1.5", only: [:dev, :test], runtime: false},
       {:bcrypt_elixir, "~> 2.0"},
+      {:verk, "~> 1.0"},
       {:excoveralls, "~> 0.10", only: :test}
     ]
   end
